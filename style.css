@@ -169,7 +169,7 @@ header nav ul li.btn a:hover,
   background: linear-gradient(90deg, rgba(250, 131, 5, 1) 0%, rgba(251, 158, 60, 1) 100%);
   color: white;
   border-radius: 50px;
-  padding: 15px 30px;
+  padding: 14px 30px;
   border: 0;
   transition: all 500ms ease;
 }
@@ -210,7 +210,7 @@ header nav ul li.btn a:hover,
   color: white;
   background: linear-gradient(90deg, rgba(250, 131, 5, 1) 0%, rgba(251, 158, 60, 1) 100%);
   border-radius: 50px;
-  padding: 12px 23px;
+  padding: 12px 30px;
   float: right;
   display: block;
   transition: all 500ms ease;
@@ -398,6 +398,7 @@ header nav ul li.btn a:hover,
   display: flex;
   justify-content: space-around;
   margin-bottom: 25px;
+  padding: 0 35px;
 } 
 
 .projects .see-all {
@@ -405,22 +406,24 @@ header nav ul li.btn a:hover,
   width: 60px;
   text-align: center;
   margin: auto;
+  margin-top: 50px;
+  /* padding: 10px 30px; */
+  margin-bottom: -50px;
 }
 
 .projects .images img {
-  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 15px;
 }
 
 .projects .images img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px 5px rgb(255, 255, 255);
+  box-shadow: 0 0 15px 5px rgb(56, 56, 56);
 }
 
 /* Нижняя часть */
 .email {
-  padding-bottom: 120px;
+  padding-bottom: 70px;
 }
 
 .email h3 {
