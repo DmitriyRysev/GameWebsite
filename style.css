@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* По умолчанию */
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: white;
+  font-size: 16px;
+}
+
+/* Убираем нижние подчеркивание у ссылок */
+a {
+  text-decoration: none;
+}
+
+/* Основной див с классами. Тут оформление фона */
+.wrapper {
+  /* Градиент */
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(26, 14, 1, 1) 100%);
+  width: 100%;
+  padding-top: 30px;
+}
+
+/* Контейнер */
+.container {
+  max-width: 1200px; /* Максимальная ширина контейнера */
+  margin: 0 auto; /* Центрирование контейнера */
+  padding: 0 100px; /* Внутренние отступы для боков */
+  padding-bottom: 30px;
+}
+
+/* 
+Точка перед названием означает, что это класс
+Отсутствие точки означает, что это селектор по тегу. 
+*/
+
+header {
+  padding: 50px 0;
+}
+
+header .logo {
+  /* Верхний регистр */
+  text-transform: uppercase;
+  /* Размер и жирность шрифта */
+  font-size: 30px;
+  font-weight: 800;
+}
+
+header nav {
+  /* Позиционирование справа */
+  float: right;
+  width: 50%;
+}
+
+header nav ul {
+  /* Удаляем точки списка */
+  list-style: none;
+  /* Гибкие элементы  */
+  display: flex;
+  /* Элементы раскиданы на всю ширину блока */
+  justify-content: space-between;
+  z-index: 2;
+  position: relative;
+}
+
+/* Строчный блок */
+header nav ul li {
+  display: inline-block;
+}
+
+/* Цвет ссылок списка */
+header nav ul li a {
+  color: white;
+  position: relative; /* Необходим для работы псевдоэлемента */
+  text-decoration: none; /* Убираем стандартное подчеркивание */
+}
+
+/* Общие стили для полоски (исключаем кнопки) */
+header nav ul li:not(.btn) a::after {
+  content: ''; /* Псевдоэлемент */
+  display: block;
+  width: 0; /* Исходная ширина */
+  height: 5px; /* Толщина обводки */
+  background: #dc7000; /* Цвет обводки */
+  border-radius: 10px; /* Скругление краёв */
+  position: absolute; /* Абсолютное позиционирование */
+  bottom: -11px; /* Привязка к нижнему краю ссылки */
+  left: 0; /* Привязка к началу ссылки */
+  transition: all 0.4s ease-in-out; /* Плавный переход */
+  opacity: 0; /* Прозрачность по умолчанию */
+}
+
+/* Полоска при наведении (исключаем кнопки) */
+header nav ul li:not(.btn) a:hover::after {
+  width: 100%; /* Полоска растягивается на ширину ссылки */
+  opacity: 1; /* Делает полоску видимой */
+}
+
+/* Полоска для активного элемента (исключаем кнопки) */
+header nav ul li:not(.btn).active a::after {
+  width: 100%; /* Ширина подстраивается под текст */
+  opacity: 1; /* Полоска видима */
+  transition: none; /* Убираем анимацию для активного элемента */
+}
+
+/* Кнопка из списка наверху */
+header nav ul li.btn a,
+.email .block button {
+  background: #fa9021;
+  padding: 9px 17px;
+  border-radius: 6px;
+  /* Плавное наведение */
+  transition: all 500ms ease;
+}
+
+/* Цвет при наведении */
+header nav ul li.btn a:hover,
+.email .block button:hover {
+  background: #c66701;
+}
+
+
+/* Секция с заголовком, текстом и джойстиком */
+.hero {
+  padding-bottom: 100px;
+  position: relative;
+  /* Слой */
+  z-index: 1;
+  
+}
+
+/* Секция с текстами */
+.hero--info {
+  width: 530px;
+  padding-top: 70px;
+
+}
+
+/* Заголовок 3D Game Dev */
+.hero--info h2 {
+  color: #E87D0E;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Заголовок большой */
+.hero--info h1 {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+/* ОСновной текст */
+.hero--info p {
+  font-weight: 500;
+  line-height: 170%;
+  margin: 30px 0;
+}
+
+/* Кнопка Get More Details */
+.hero--info .btn {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background: linear-gradient(90deg, rgba(250, 131, 5, 1) 0%, rgba(251, 158, 60, 1) 100%);
+  color: white;
+  border-radius: 50px;
+  padding: 15px 30px;
+  border: 0;
+  transition: all 500ms ease;
+}
+
+/* Эффект при наведении */
+.hero--info .btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.hero img {
+  position: absolute;
+  top: -215px;
+  right: 140px;
+  /* Адаптивная ширина изображения */
+  max-width: 50%; 
+  /* Сохранение пропорций */
+  height: auto;
+  /* Затемнение изображения */
+  filter: brightness(0.87);
+}
+
+
+/* Секция с играми */
+.trending {
+  padding-top: 50px;
+}
+
+/* Заголовок с играми */
+.trending h3 {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+/* Кнопка see all */
+.trending .see-all, 
+.projects .see-all{
+  color: white;
+  background: linear-gradient(90deg, rgba(250, 131, 5, 1) 0%, rgba(251, 158, 60, 1) 100%);
+  border-radius: 50px;
+  padding: 12px 23px;
+  float: right;
+  display: block;
+  transition: all 500ms ease;
+  font-weight: 400;
+}
+
+/* анимация */
+.trending .see-all:hover, 
+.projects .see-all:hover {
+  transform: scale(1.1);
+}
+
+/* Контейнер для картинок */
+.trending .games {
+  display: grid; /* Используем CSS Grid для удобной сетки */
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки равной ширины */
+  gap: 50px; /* Отступы между карточками */
+  width: 100%;
+  padding: 50px 0;
+}
+
+/* Карточки */
+.trending .block img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trending .block img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px 5px rgb(182, 99, 0); /* Тень равномерно со всех сторон */
+}
+
+/* Для каждой картинки свой цвет */
+.trending .block img:hover[src="/img/game-dota.jpeg"] {
+  box-shadow: 0 0 15px 5px rgb(180, 130, 100);
+}
+
+.trending .block img:hover[src="/img/game-gta.jpeg"] {
+  box-shadow: 0 0 15px 5px rgb(205, 179, 206);
+}
+
+.trending .block img:hover[src="/img/game-rdr.jpg"] {
+  box-shadow: 0 0 15px 5px rgb(171, 15,3);
+}
+
+.trending .block img:hover[src="/img/game-witcher.jpeg"] {
+  box-shadow: 0 0 15px 5px rgb(95, 111, 126);
+}
+
+.trending .block img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.trending .games span {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.block span img {
+  width: 20px; /* Задайте точный размер иконки */
+  height: 20px;
+  margin-right: 8px;
+  display: inline-block; /* Убедитесь, что это строчный элемент */
+  vertical-align: middle; /* Для выравнивания по тексту */
+}
+
+.block span {
+  display: inline-flex; /* Для центрирования иконки и текста */
+  align-items: center;
+  font-size: 18px; /* Размер шрифта для текста */
+  font-weight: 500;
+  color: white; /* Цвет текста */
+}
+
+.trending .games .block span img {
+  box-shadow: none; /* Отключаем тень */
+  transform: none; /* Отключаем масштабирование */
+  transition: none; /* Убираем анимацию */
+}
+
+.big-text {
+  padding: 50px 0;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  width: 800px;
+}
+
+
+/* Третья секция с картинкой и текстами */
+.banner {
+  padding: 80px;
+}
+
+/* Заголовок */
+.banner h3 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Текст */
+.banner p {
+  /* Межстрочный интервал */
+  line-height: 170%;
+  font-weight: 500;
+  margin-bottom: 30px;
+  width: 550px;
+}
+
+.banner img {
+  border-radius: 20px;
+  margin-top: 30px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.banner img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px 5px rgb(74, 92, 158); /* Тень равномерно со всех сторон */
+}
+
+
+/* Секция с изображением на заднем фоне */
+.features {
+  background: url('/img/bg.png') no-repeat center fixed;
+  background-size: cover;
+  filter: brightness(0.8); 
+  padding: 80px 0;
+}
+
+/* Заголовок и текст над картинками */
+.features h3,
+.features p {
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Заголовок над картинками */
+.features h3 {
+  font-size: 30px;
+}
+
+/* Блок с картинками */
+.features .info {
+  display: flex;
+  justify-content: center;
+  /* Чтобы блоки переходили на новый ряд */
+  flex-wrap: wrap;
+}
+
+/* Для текста под картинками */
+.features .info .block {
+  text-align: center;
+  width: 20%;
+  margin: 30px 2%;
+}
+
+.features .info .block img {
+  margin-bottom: 10px;
+}
+
+
+/* Секция с проектами  */
+.projects {
+  padding: 100px 0;
+}
+
+.projects h3 {
+  margin-top: -50px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.projects p {
+  margin: 40px;
+  text-align: center;
+}
+
+.projects .images {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+} 
+
+.projects .see-all {
+  float: none;
+  width: 60px;
+  text-align: center;
+  margin: auto;
+}
+
+.projects .images img {
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 15px;
+}
+
+.projects .images img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px 5px rgb(255, 255, 255);
+}
+
+/* Нижняя часть */
+.email {
+  padding-bottom: 120px;
+}
+
+.email h3 {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+/* Основной блок */
+.email .block {
+  background: #1C140F;
+  margin-top: 30px;
+  border-radius: 15px;
+  padding: 30px 3%; /* Уменьшил высоту блока через padding */
+  width: 94%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px; /* Расстояние между текстом и формой */
+}
+
+/* Заголовок */
+.email .block h4 {
+  font-weight: 500;
+  font-size: 30px; /* Размер шрифта заголовка */
+  margin-bottom: 10px; /* Отступ снизу */
+  color: white;
+}
+
+/* Текст */
+.email .block p {
+  width: 480px; /* Уменьшил ширину текста */
+  font-size: 16px; /* Размер текста */
+  line-height: 1.5; /* Интерлиньяж */
+  color: #ccc;
+  margin: 0; /* Убрал лишние отступы */
+}
+
+/* Поле ввода */
+.email .block input {
+  background: white;
+  outline: none;
+  border: 0;
+  border-radius: 10px;
+  width: 500px; /* Уменьшил ширину */
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  padding: 15px 20px; /* Уменьшил отступы */
+  margin-right: -149.5px;
+  font-size: 14px; /* Размер шрифта */
+  /* position: relative; */
+  z-index: 1;
+  /* padding-right: 140px; Оставил место для кнопки */
+}
+
+/* Цвет placeholder */
+.email .block input::placeholder {
+  color: #898989;
+  font-size: 14px;
+}
+
+/* Кнопка */
+.email .block button {
+  cursor: pointer;
+  border: 0;
+  background: #fa9021;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 25px; /* Размер кнопки */
+  width: 130px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px; /* Размер текста кнопки */
+  margin-left: 10px; /* Отступ кнопки от поля ввода */
+  z-index: 2;
+}
+
+
+/* Низ */
+footer {
+  background: black;
+  padding: 70px 0;
+}
+
+footer .blocks {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+
+footer .blocks .logo {
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+footer .blocks p {
+  width: 300px;
+  margin: 20px 0;
+  margin-top: 7px;
+  opacity: 0.8;
+}
+
+footer .blocks h4 {
+  margin-top: 6px;
+  font-weight: 500;
+  font-size: 17;
+}
+
+footer .blocks ul {
+  list-style: none;
+  margin: 15px 0;
+}
+
+footer .blocks ul li {
+  margin-top: 7px;
+  opacity: 0.8;
+}
+
+footer > p {
+  padding-top: 30px;
+  text-align: center;
+  margin-bottom: -38px;
+}
